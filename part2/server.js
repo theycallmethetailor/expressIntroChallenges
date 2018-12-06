@@ -16,6 +16,12 @@ app.post('/create/:name/:age', function(req, res) {
   res.end()
 })
 
+app.get('/', (req, res) => {
+  let stuff = fs.readFileSync('./part2/storage.json')
+  console.log(stuff);
+  res.send(stuff)
+})
+
 app.use(function(req, res) {
   res.sendStatus(404);
 });
